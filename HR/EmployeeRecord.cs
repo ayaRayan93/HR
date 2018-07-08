@@ -23,6 +23,7 @@ namespace HR
                 InitializeComponent();
                 dbconnection = new MySqlConnection(connection.connectionString);
                 this.employees = employees;
+
             }
             catch (Exception ex)
             {
@@ -44,6 +45,18 @@ namespace HR
                 comBranch.DisplayMember = dt.Columns["Branch_Name"].ToString();
                 comBranch.ValueMember = dt.Columns["Branch_ID"].ToString();
                 comBranch.Text = "";
+
+                VScrollBar myScrollBar = new VScrollBar();
+
+                myScrollBar.Height = panel1.Height;
+
+                myScrollBar.Left = panel1.Width - myScrollBar.Width;
+
+                myScrollBar.Top = 0;
+
+                myScrollBar.Enabled = false;
+
+                panel2.Controls.Add(myScrollBar);
             }
             catch (Exception ex)
             {
@@ -80,9 +93,28 @@ namespace HR
                 MySqlCommand cmd = new MySqlCommand(insert, dbconnection);
 
                 cmd.Parameters.Add("@Employee_Number", MySqlDbType.Int16);
-                cmd.Parameters["@Employee_Number"].Value = Convert.ToInt16(txtEmployeeNumber.Text);
+                if (txtEmployeeNumber.Text != "")
+                {
+                    cmd.Parameters["@Employee_Number"].Value = Convert.ToInt16(txtEmployeeNumber.Text);
+                    labNumberReqired.Visible = false;
+                }
+                else
+                {
+                    txtEmployeeNumber.Focus();
+                    labNumberReqired.Visible = true;
+                }
                 cmd.Parameters.Add("@Employee_Name", MySqlDbType.VarChar, 255);
-                cmd.Parameters["@Employee_Name"].Value = txtEmployeeName.Text;
+                if (txtEmployeeName.Text != "")
+                {
+                    cmd.Parameters["@Employee_Name"].Value = txtEmployeeName.Text;
+                    labName.Visible = false;
+                }
+                else
+                {
+                    txtEmployeeName.Focus();
+                    labName.Visible = true;
+                }
+                
                 cmd.Parameters.Add("@National_ID", MySqlDbType.VarChar, 255);
                 cmd.Parameters["@National_ID"].Value = txtNationalID.Text;
                 cmd.Parameters.Add("@Employee_Phone", MySqlDbType.VarChar, 255);
@@ -113,11 +145,18 @@ namespace HR
                 cmd.Parameters["@Social_Status"].Value = txtSocialStatus.Text;
 
                 cmd.Parameters.Add("@SocialInsuranceNumber", MySqlDbType.Int16);
-                cmd.Parameters["@SocialInsuranceNumber"].Value =Convert.ToInt16(txtSocialInsuranceNumber.Text);
+                if (txtSocialInsuranceNumber.Text != "")
+                    cmd.Parameters["@SocialInsuranceNumber"].Value = Convert.ToInt16(txtSocialInsuranceNumber.Text);
+                else
+                    cmd.Parameters["@SocialInsuranceNumber"].Value = 0;
+
                 cmd.Parameters.Add("@EmploymentType", MySqlDbType.VarChar, 255);
                 cmd.Parameters["@EmploymentType"].Value = txtWorkType.Text;
                 cmd.Parameters.Add("@ExperienceYears", MySqlDbType.Int16);
-                cmd.Parameters["@ExperienceYears"].Value = Convert.ToInt16(txtExperienceYears.Text);
+                if (txtExperienceYears.Text != "")
+                    cmd.Parameters["@ExperienceYears"].Value = Convert.ToInt16(txtExperienceYears.Text);
+                else
+                    cmd.Parameters["@ExperienceYears"].Value = 0;
 
                 if (cmd.ExecuteNonQuery() == 1)
                 {
@@ -156,7 +195,7 @@ namespace HR
         //clear
         public void clear()
         {
-            foreach (Control item in this.Controls)
+            foreach (Control item in this.Controls["panel1"].Controls["panel2"].Controls)
             {
                 if (item is TextBox)
                     item.Text = "";
