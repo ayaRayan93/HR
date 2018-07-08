@@ -93,9 +93,9 @@ namespace HR
             objForm.Dock = DockStyle.Fill;
             objForm.Show();
         }
-        public void bindRecordEmployeesForm()
+        public void bindRecordEmployeesForm(Employees employees)
         {
-            EmployeeRecord objForm = new EmployeeRecord();
+            EmployeeRecord objForm = new EmployeeRecord(employees);
 
             objForm.TopLevel = false;
             XtraTabPage xtraTabPage = getTabPage("أضافة موظف");
@@ -233,6 +233,6 @@ namespace HR
     public static class connection
     {
       // public static string connectionString = "SERVER=192.168.1.200;DATABASE=test;user=Devccc;PASSWORD=rootroot;CHARSET=utf8";
-         public static string connectionString = "SERVER=localhost;DATABASE=ccc;user=root;PASSWORD=root;CHARSET=utf8";
+         public static string connectionString = "SERVER=localhost;DATABASE=ccctest;user=root;PASSWORD=root;CHARSET=utf8";
     }
 }

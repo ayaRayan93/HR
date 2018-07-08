@@ -22,6 +22,7 @@ namespace HR
             {
                 InitializeComponent();
                 dbconnection = new MySqlConnection(connection.connectionString);
+                this.HRMainForm = HRMainForm;
             }
             catch (Exception ex)
             {
@@ -46,7 +47,14 @@ namespace HR
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                HRMainForm.bindRecordEmployeesForm(this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {

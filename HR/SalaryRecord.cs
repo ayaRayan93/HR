@@ -30,16 +30,11 @@ namespace HR
             Environment.Exit(0);
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Form2 f2 = new Form2();
-            this.Hide();
-            f2.Show();
-        }
+ 
 
         private void Form5_Load(object sender, EventArgs e)
         {
-            con = new MySqlConnection(conn.str);
+            con = new MySqlConnection(connection.connectionString);
 
             radioButton1.Checked = false;
             radioButton2.Checked = false;
@@ -183,7 +178,7 @@ namespace HR
         {
             if (e.KeyCode == Keys.Enter)
             {
-                textBox7.Focus();
+                //textBox7.Focus();
             }
         }
 
@@ -191,8 +186,8 @@ namespace HR
         {
             if (e.KeyCode == Keys.Enter)
             {
-                button2.Focus();
-                textBox8.Text = (Double.Parse(textBox2.Text) + Double.Parse(textBox3.Text) + Double.Parse(textBox4.Text) + Double.Parse(textBox5.Text) + Double.Parse(textBox6.Text) + Double.Parse(textBox7.Text)).ToString();
+               // button2.Focus();
+                textBox8.Text = (Double.Parse(textBox2.Text) + Double.Parse(textBox3.Text) + Double.Parse(textBox4.Text) + Double.Parse(textBox5.Text) + Double.Parse(textBox6.Text) /*+ Double.Parse(textBox7.Text)*/).ToString();
             }
         }
 
@@ -220,7 +215,7 @@ namespace HR
                     cmd.Parameters.Add("@Transition", MySqlDbType.Decimal, 10);
                     cmd.Parameters["@Transition"].Value = textBox6.Text;
                     cmd.Parameters.Add("@Annual_Stimulus", MySqlDbType.Decimal, 10);
-                    cmd.Parameters["@Annual_Stimulus"].Value = textBox7.Text;
+                  //  cmd.Parameters["@Annual_Stimulus"].Value = textBox7.Text;
                     cmd.Parameters.Add("@Total", MySqlDbType.Decimal, 10);
                     cmd.Parameters["@Total"].Value = textBox8.Text;
                     cmd.Parameters.Add("@Worker_Name", MySqlDbType.VarChar, 255);
@@ -261,7 +256,7 @@ namespace HR
                     cmd.Parameters.Add("@Transition", MySqlDbType.Decimal, 10);
                     cmd.Parameters["@Transition"].Value = textBox6.Text;
                     cmd.Parameters.Add("@Annual_Stimulus", MySqlDbType.Decimal, 10);
-                    cmd.Parameters["@Annual_Stimulus"].Value = textBox7.Text;
+                  //  cmd.Parameters["@Annual_Stimulus"].Value = textBox7.Text;
                     cmd.Parameters.Add("@Total", MySqlDbType.Decimal, 10);
                     cmd.Parameters["@Total"].Value = textBox8.Text;
                     cmd.Parameters.Add("@Worker_Name", MySqlDbType.VarChar, 255);

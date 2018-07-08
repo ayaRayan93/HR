@@ -27,17 +27,11 @@ namespace HR
 
         private void Form10_Load(object sender, EventArgs e)
         {
-            con = new MySqlConnection(conn.str);
+            con = new MySqlConnection(connection.connectionString);
             radioButton1.Checked = false;
             radioButton2.Checked = false;
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Form2 f2 = new Form2();
-            this.Hide();
-            f2.Show();
-        }
 
         private void Form10_FormClosed(object sender, FormClosedEventArgs e)
         {

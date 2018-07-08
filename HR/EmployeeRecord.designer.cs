@@ -475,6 +475,7 @@
             // 
             // comBranch
             // 
+            this.comBranch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comBranch.Font = new System.Drawing.Font("Tahoma", 10F);
             this.comBranch.FormattingEnabled = true;
             this.comBranch.Location = new System.Drawing.Point(714, 488);
@@ -551,6 +552,7 @@
             this.Name = "EmployeeRecord";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form4";
+            this.Load += new System.EventHandler(this.EmployeeRecord_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ImageBox)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);

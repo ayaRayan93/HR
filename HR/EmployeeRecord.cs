@@ -15,19 +15,40 @@ namespace HR
     public partial class EmployeeRecord : Form
     {
         MySqlConnection dbconnection;
-
-        public EmployeeRecord()
+        Employees employees;
+        public EmployeeRecord(Employees employees)
         {
             try
             {
                 InitializeComponent();
                 dbconnection = new MySqlConnection(connection.connectionString);
+                this.employees = employees;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
        
+        }
+
+
+        private void EmployeeRecord_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                string query = "select * from branch";
+                MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                comBranch.DataSource = dt;
+                comBranch.DisplayMember = dt.Columns["Branch_Name"].ToString();
+                comBranch.ValueMember = dt.Columns["Branch_ID"].ToString();
+                comBranch.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnAddEmployee_Click(object sender, EventArgs e)
@@ -53,13 +74,13 @@ namespace HR
                     x = Double.Parse(txtSalary.Text);
                 }
 
-                string insert = "INSERT INTO Employee (Employee_Number,Employee_Name,Employee_Phone,Employee_Address,Employee_Info,Employee_Qualification,Employee_Start,Employee_Job,Employee_Department,Employee_Birth,Employee_Salary,Employee_Mail,Employee_Branch_ID,Employee_Photo,National_ID,Social_Status,SocialInsuranceNumber,EmploymentType,ExperienceYears) VALUES (@Employee_Number,@Employee_Name,@Employee_Phone,@Employee_Address,@Employee_Info,@Employee_Qualification,@Employee_Start,@Employee_Job,@Employee_Department,@Employee_Birth,@Employee_Salary,@Employee_Mail,@Employee_Branch_ID,@Employee_Photo,@National_ID,@Social_Status,@SocialInsuranceNumber,@EmploymentType,@ExperienceYears)";
+                string insert = "INSERT INTO Employee (Employee_Number,Employee_Name,Employee_Phone,Employee_Address,Employee_Info,Employee_Qualification,Employee_Start_Date,Employee_Job,Employee_Department,Employee_Birth_Date,Employee_Salary,Employee_Mail,Employee_Branch_ID,Employee_Photo,National_ID,Social_Status,SocialInsuranceNumber,EmploymentType,ExperienceYears) VALUES (@Employee_Number,@Employee_Name,@Employee_Phone,@Employee_Address,@Employee_Info,@Employee_Qualification,@Employee_Start,@Employee_Job,@Employee_Department,@Employee_Birth,@Employee_Salary,@Employee_Mail,@Employee_Branch_ID,@Employee_Photo,@National_ID,@Social_Status,@SocialInsuranceNumber,@EmploymentType,@ExperienceYears)";
 
                 dbconnection.Open();
                 MySqlCommand cmd = new MySqlCommand(insert, dbconnection);
 
                 cmd.Parameters.Add("@Employee_Number", MySqlDbType.Int16);
-                cmd.Parameters["@Employee_Number"].Value = txtEmployeeNumber.Text;
+                cmd.Parameters["@Employee_Number"].Value = Convert.ToInt16(txtEmployeeNumber.Text);
                 cmd.Parameters.Add("@Employee_Name", MySqlDbType.VarChar, 255);
                 cmd.Parameters["@Employee_Name"].Value = txtEmployeeName.Text;
                 cmd.Parameters.Add("@National_ID", MySqlDbType.VarChar, 255);
@@ -91,16 +112,17 @@ namespace HR
                 cmd.Parameters.Add("@Social_Status", MySqlDbType.VarChar, 255);
                 cmd.Parameters["@Social_Status"].Value = txtSocialStatus.Text;
 
-                cmd.Parameters.Add("@SocialInsuranceNumber", MySqlDbType.VarChar, 255);
-                cmd.Parameters["@SocialInsuranceNumber"].Value = txtSocialInsuranceNumber.Text;
+                cmd.Parameters.Add("@SocialInsuranceNumber", MySqlDbType.Int16);
+                cmd.Parameters["@SocialInsuranceNumber"].Value =Convert.ToInt16(txtSocialInsuranceNumber.Text);
                 cmd.Parameters.Add("@EmploymentType", MySqlDbType.VarChar, 255);
                 cmd.Parameters["@EmploymentType"].Value = txtWorkType.Text;
-                cmd.Parameters.Add("@ExperienceYears", MySqlDbType.VarChar, 255);
-                cmd.Parameters["@ExperienceYears"].Value = txtExperienceYears.Text;
+                cmd.Parameters.Add("@ExperienceYears", MySqlDbType.Int16);
+                cmd.Parameters["@ExperienceYears"].Value = Convert.ToInt16(txtExperienceYears.Text);
 
                 if (cmd.ExecuteNonQuery() == 1)
                 {
                     MessageBox.Show("تم ادخال البيانات بنجاح");
+                    employees.displayEmployee();
                     clear();
                 }
                 
@@ -143,5 +165,6 @@ namespace HR
             }
             ImageBox.Image = null;
         }
+
     }
 }
