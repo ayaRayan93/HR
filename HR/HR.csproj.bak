@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{94454D4F-24AB-4FF5-843B-61C64992BC36}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HR</RootNamespace>
+    <AssemblyName>HR</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.5.3">
+      <HintPath>..\..\..\..\draft\ccc\Bunifu_UI_v1.5.3.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v17.2.Core, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v17.2.Core, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v17.2.UI, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v17.2.Wizard, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v17.2, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v17.2.Core, Version=17.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.8.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.8.8\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="mysql.data.entity.EF6, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entities.6.8.3.0\lib\net45\mysql.data.entity.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="3lawaRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="3lawaRecord.Designer.cs">
+      <DependentUpon>3lawaRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeHolidayRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeHolidayRecord.Designer.cs">
+      <DependentUpon>EmployeeHolidayRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeRecord.designer.cs">
+      <DependentUpon>EmployeeRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees.Designer.cs">
+      <DependentUpon>Employees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DelegateRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DelegateRecord.designer.cs">
+      <DependentUpon>DelegateRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdvanceRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdvanceRecord.designer.cs">
+      <DependentUpon>AdvanceRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EvaluationRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EvaluationRecord.Designer.cs">
+      <DependentUpon>EvaluationRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GazaatRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GazaatRecord.Designer.cs">
+      <DependentUpon>GazaatRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IncentivesRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IncentivesRecord.Designer.cs">
+      <DependentUpon>IncentivesRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RewordRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RewordRecord.Designer.cs">
+      <DependentUpon>RewordRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalaryRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalaryRecord.designer.cs">
+      <DependentUpon>SalaryRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoanRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoanRecord.designer.cs">
+      <DependentUpon>LoanRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HRMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HRMainForm.designer.cs">
+      <DependentUpon>HRMainForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="3lawaRecord.resx">
+      <DependentUpon>3lawaRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeHolidayRecord.resx">
+      <DependentUpon>EmployeeHolidayRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeRecord.resx">
+      <DependentUpon>EmployeeRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees.resx">
+      <DependentUpon>Employees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DelegateRecord.resx">
+      <DependentUpon>DelegateRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdvanceRecord.resx">
+      <DependentUpon>AdvanceRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EvaluationRecord.resx">
+      <DependentUpon>EvaluationRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GazaatRecord.resx">
+      <DependentUpon>GazaatRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IncentivesRecord.resx">
+      <DependentUpon>IncentivesRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RewordRecord.resx">
+      <DependentUpon>RewordRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalaryRecord.resx">
+      <DependentUpon>SalaryRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoanRecord.resx">
+      <DependentUpon>LoanRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="HRMainForm.resx">
+      <DependentUpon>HRMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\111.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\22815050_745381125647238_3436108014248455431_n.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\26169220_778374455681238_6575113916689389907_n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\29467975_815279478657402_3913470180302258176_n.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\33.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\44.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\55.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\66.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\77.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\844002_close_512x512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\88.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\99.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\animated-gif-loading.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundF.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundF1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BackgroundF2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Basic_Dashboard_UI_minimize_restore_down_box-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\camara.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\camara1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cancel_321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Car Service_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cash in Hand_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cash in Hand_80px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cash in Hand_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\closeIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Collapse Arrow_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Conference_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Conference_80px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Customer Support_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Customer Support_50px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete_321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete_52px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit_321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Expand Arrow_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\File_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\File_321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Flow Chart_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Flow Chart_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Flow Chart_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Forward_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\General Ledger_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loginscreen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Male User_52px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Male User_52px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Male User_80px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minus_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Minus_Math__32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Money Bag_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notFound.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notification_20px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notification_20px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notification_20px1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notification_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Notification_80px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\POS Terminal_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Print_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Print_321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rectangle_Stroked_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rectangle_Stroked_321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Save_321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shipped_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shopping Cart_30px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shopping Cart_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shopping Cart_80px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shopping Cart_96px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Total Sales_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trolley_50px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Trolley_80px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unsave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unsave %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Virtual_Machine6_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\افرع-الشركه--Light.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\نقطيه-البيع---white.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
