@@ -113,7 +113,26 @@ namespace HR
             objForm.Dock = DockStyle.Fill;
             objForm.Show();
         }
+        public void bindReportEmployeesForm(GridControl gridControl)
+        {
+            EmployeeReport objForm = new EmployeeReport(gridControl);
 
+            objForm.TopLevel = false;
+            XtraTabPage xtraTabPage = getTabPage("أضافة موظف");
+            if (xtraTabPage == null)
+            {
+                xtraTabControlHRContent.TabPages.Add("أضافة موظف");
+                xtraTabPage = getTabPage("أضافة موظف");
+
+            }
+            xtraTabPage.Controls.Clear();
+            xtraTabPage.Controls.Add(objForm);
+            xtraTabControlHRContent.SelectedTabPage = xtraTabPage;
+
+            objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            objForm.Dock = DockStyle.Fill;
+            objForm.Show();
+        }
         private void xtraTabControlStoresContent_CloseButtonClick(object sender, EventArgs e)
         {
             try

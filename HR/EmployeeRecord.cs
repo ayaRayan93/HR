@@ -102,6 +102,8 @@ namespace HR
                 {
                     txtEmployeeNumber.Focus();
                     labNumberReqired.Visible = true;
+                    dbconnection.Close();
+                    return;
                 }
                 cmd.Parameters.Add("@Employee_Name", MySqlDbType.VarChar, 255);
                 if (txtEmployeeName.Text != "")
@@ -113,6 +115,8 @@ namespace HR
                 {
                     txtEmployeeName.Focus();
                     labName.Visible = true;
+                    dbconnection.Close();
+                    return;
                 }
                 
                 cmd.Parameters.Add("@National_ID", MySqlDbType.VarChar, 255);

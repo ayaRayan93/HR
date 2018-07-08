@@ -96,6 +96,17 @@ namespace HR
             dbconnection.Close();
         }
 
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                HRMainForm.bindReportEmployeesForm(gridControl1);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         //function
         //display all employee
         public void displayEmployee()
@@ -108,7 +119,7 @@ namespace HR
             gridView1.Columns[0].Visible = false;
         }
 
-       
+     
     }
 
   
