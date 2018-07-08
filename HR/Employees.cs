@@ -15,10 +15,19 @@ namespace HR
     public partial class Employees : Form
     {
         MySqlConnection dbconnection;
-        public Employees()
+        HRMainForm HRMainForm;
+        public Employees(HRMainForm HRMainForm)
         {
-            InitializeComponent();
-            dbconnection = new MySqlConnection(connection.connectionString);
+            try
+            {
+                InitializeComponent();
+                dbconnection = new MySqlConnection(connection.connectionString);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -35,6 +44,10 @@ namespace HR
             dbconnection.Close();
         }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try
@@ -79,7 +92,7 @@ namespace HR
         //display all employee
         public void displayEmployee()
         {
-            string query = "select Employee_ID, Employee_Number as 'الرقم الوظيفي',Employee_Name as 'اسم الموظف',Phone as 'التلفون',Address as 'العنوان',Mail as 'البريد الالكتروني',Birth_Date as 'تاريخ الميلاد',Qualification as 'المؤهل العلمي',SocialInsuranceNumber as 'رقم التامين الاجتماعي',National_ID as 'الرقم القومي',Social_Status as 'الحالة الاجتماعية',Start_Date as 'تاريخ بدءالعمل',Branch_Name as 'الفرع',Job as 'الوظيفة',Department as 'مكان العمل',Salary as 'الراتب الاساسي',Photo as 'الصورة',EmploymentType as 'نوع التوظيف',Info as 'ملاحظات' from employee inner join branch on employee.Branch_ID=branch.Branch_ID";      
+            string query = "select Employee_ID, Employee_Number as 'الرقم الوظيفي',Employee_Name as 'اسم الموظف',Employee_Phone as 'التلفون',Employee_Address as 'العنوان',Employee_Mail as 'البريد الالكتروني',Employee_Birth_Date as 'تاريخ الميلاد',Employee_Qualification as 'المؤهل العلمي',SocialInsuranceNumber as 'رقم التامين الاجتماعي',National_ID as 'الرقم القومي',Social_Status as 'الحالة الاجتماعية',Employee_Start_Date as 'تاريخ بدءالعمل',Branch_Name as 'الفرع',Employee_Job as 'الوظيفة',Employee_Department as 'مكان العمل',Employee_Salary as 'الراتب الاساسي',Employee_Photo as 'الصورة',EmploymentType as 'نوع التوظيف',ExperienceYears as 'عدد سنوات الخبرة',Employee_Info as 'ملاحظات' from employee inner join branch on employee.Employee_Branch_ID=branch.Branch_ID";      
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, dbconnection);
             DataSet dataSet = new DataSet();
             adapter.Fill(dataSet);

@@ -30,7 +30,7 @@ namespace HR
        
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnAddEmployee_Click(object sender, EventArgs e)
         {
             try
             {
@@ -44,16 +44,16 @@ namespace HR
                 }
                 double x;
 
-                if (txtDepartment.Text == "")
+                if (txtSalary.Text == "")
                 {
                     x = 0;
                 }
                 else
                 {
-                    x = Double.Parse(txtDepartment.Text);
+                    x = Double.Parse(txtSalary.Text);
                 }
 
-                string insert = "INSERT INTO Employee (Employee_Number,Employee_Name,Employee_Phone,Employee_Address,Employee_Info,Employee_Qualification,Employee_Start,Employee_Job,Employee_Department,Employee_Birth,Employee_Salary,Employee_Mail,Employee_Branch,Employee_Photo,National_ID,Social_Status,Job_Hours) VALUES (@Employee_Number,@Employee_Name,@Employee_Phone,@Employee_Address,@Employee_Info,@Employee_Qualification,@Employee_Start,@Employee_Job,@Employee_Department,@Employee_Birth,@Employee_Salary,@Employee_Mail,@Employee_Branch,@Employee_Photo,@National_ID,@Social_Status,@Job_Hours)";
+                string insert = "INSERT INTO Employee (Employee_Number,Employee_Name,Employee_Phone,Employee_Address,Employee_Info,Employee_Qualification,Employee_Start,Employee_Job,Employee_Department,Employee_Birth,Employee_Salary,Employee_Mail,Employee_Branch_ID,Employee_Photo,National_ID,Social_Status,SocialInsuranceNumber,EmploymentType,ExperienceYears) VALUES (@Employee_Number,@Employee_Name,@Employee_Phone,@Employee_Address,@Employee_Info,@Employee_Qualification,@Employee_Start,@Employee_Job,@Employee_Department,@Employee_Birth,@Employee_Salary,@Employee_Mail,@Employee_Branch_ID,@Employee_Photo,@National_ID,@Social_Status,@SocialInsuranceNumber,@EmploymentType,@ExperienceYears)";
 
                 dbconnection.Open();
                 MySqlCommand cmd = new MySqlCommand(insert, dbconnection);
@@ -63,55 +63,45 @@ namespace HR
                 cmd.Parameters.Add("@Employee_Name", MySqlDbType.VarChar, 255);
                 cmd.Parameters["@Employee_Name"].Value = txtEmployeeName.Text;
                 cmd.Parameters.Add("@National_ID", MySqlDbType.VarChar, 255);
-                cmd.Parameters["@National_ID"].Value = txt.Text;
+                cmd.Parameters["@National_ID"].Value = txtNationalID.Text;
                 cmd.Parameters.Add("@Employee_Phone", MySqlDbType.VarChar, 255);
-                cmd.Parameters["@Employee_Phone"].Value = txtNationalID.Text;
+                cmd.Parameters["@Employee_Phone"].Value = txtPhone.Text;
                 cmd.Parameters.Add("@Employee_Address", MySqlDbType.VarChar, 255);
-                cmd.Parameters["@Employee_Address"].Value = txtSocialInsuranceNumber.Text;
+                cmd.Parameters["@Employee_Address"].Value = txtAddress.Text;
                 cmd.Parameters.Add("@Employee_Qualification", MySqlDbType.VarChar, 255);
-                cmd.Parameters["@Employee_Qualification"].Value = txtJob.Text;
+                cmd.Parameters["@Employee_Qualification"].Value = txtQualification.Text;
                 cmd.Parameters.Add("@Employee_Start", MySqlDbType.Date, 0);
                 cmd.Parameters["@Employee_Start"].Value = dateTimePickerStartDate.Value;
                 cmd.Parameters.Add("@Employee_Job", MySqlDbType.VarChar, 255);
-                cmd.Parameters["@Employee_Job"].Value = txtWorkType.Text;
+                cmd.Parameters["@Employee_Job"].Value = txtJob.Text;
                 cmd.Parameters.Add("@Employee_Salary", MySqlDbType.Decimal, 10);
                 cmd.Parameters["@Employee_Salary"].Value = x;
                 cmd.Parameters.Add("@Employee_Birth", MySqlDbType.Date, 0);
-                cmd.Parameters["@Employee_Birth"].Value = dateTimePicker2.Value;
+                cmd.Parameters["@Employee_Birth"].Value = dateTimePickerBirthDate.Value;
                 cmd.Parameters.Add("@Employee_Mail", MySqlDbType.VarChar, 255);
-                cmd.Parameters["@Employee_Mail"].Value = textBox7.Text;
-                cmd.Parameters.Add("@Employee_Branch", MySqlDbType.VarChar, 255);
-                cmd.Parameters["@Employee_Branch"].Value = textBox10.Text;
+                cmd.Parameters["@Employee_Mail"].Value = txtMail.Text;
+                cmd.Parameters.Add("@Employee_Branch_ID", MySqlDbType.Int16);
+                cmd.Parameters["@Employee_Branch_ID"].Value = comBranch.SelectedValue;
                 cmd.Parameters.Add("@Employee_Department", MySqlDbType.VarChar, 255);
-                cmd.Parameters["@Employee_Department"].Value = txtQualification.Text;
+                cmd.Parameters["@Employee_Department"].Value = txtDepartment.Text;
                 cmd.Parameters.Add("@Employee_Info", MySqlDbType.VarChar, 255);
                 cmd.Parameters["@Employee_Info"].Value = txtNotes.Text;
                 cmd.Parameters.Add("@Employee_Photo", MySqlDbType.Blob);
-                cmd.Parameters["@Employee_Photo"].Value = img;
-                
+                cmd.Parameters["@Employee_Photo"].Value = img;               
                 cmd.Parameters.Add("@Social_Status", MySqlDbType.VarChar, 255);
-                cmd.Parameters["@Social_Status"].Value = textBox11.Text;
-                cmd.Parameters.Add("@Job_Hours", MySqlDbType.VarChar, 255);
-                cmd.Parameters["@Job_Hours"].Value = comBranch.Text;
+                cmd.Parameters["@Social_Status"].Value = txtSocialStatus.Text;
+
+                cmd.Parameters.Add("@SocialInsuranceNumber", MySqlDbType.VarChar, 255);
+                cmd.Parameters["@SocialInsuranceNumber"].Value = txtSocialInsuranceNumber.Text;
+                cmd.Parameters.Add("@EmploymentType", MySqlDbType.VarChar, 255);
+                cmd.Parameters["@EmploymentType"].Value = txtWorkType.Text;
+                cmd.Parameters.Add("@ExperienceYears", MySqlDbType.VarChar, 255);
+                cmd.Parameters["@ExperienceYears"].Value = txtExperienceYears.Text;
 
                 if (cmd.ExecuteNonQuery() == 1)
                 {
                     MessageBox.Show("تم ادخال البيانات بنجاح");
-
-                    txtEmployeeName.Clear();
-                    txtNationalID.Clear();
-                    txtSocialInsuranceNumber.Clear();
-                    txtJob.Clear();
-                    txtWorkType.Clear();
-                    txtDepartment.Clear();
-                    textBox7.Clear();
-                    txtQualification.Clear();
-                    txtNotes.Clear();
-                    textBox10.Clear();
-                    textBox11.Clear();
-                    txt.Clear();
-
-                    ImageBox.Image = null;
+                    clear();
                 }
                 
             }
@@ -122,7 +112,7 @@ namespace HR
             dbconnection.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnUploadImage_Click(object sender, EventArgs e)
         {
             try
             {
@@ -140,7 +130,18 @@ namespace HR
     
         }
 
-    
-
+        //function
+        //clear
+        public void clear()
+        {
+            foreach (Control item in this.Controls)
+            {
+                if (item is TextBox)
+                    item.Text = "";
+                else if (item is ComboBox)
+                    item.Text = "";
+            }
+            ImageBox.Image = null;
+        }
     }
 }

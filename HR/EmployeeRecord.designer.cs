@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerBirthDate = new System.Windows.Forms.DateTimePicker();
             this.txtNotes = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtDepartment = new System.Windows.Forms.TextBox();
             this.txtWorkType = new System.Windows.Forms.TextBox();
             this.dateTimePickerStartDate = new System.Windows.Forms.DateTimePicker();
@@ -48,9 +48,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.txtSocialStatus = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.txt = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txtQualification = new System.Windows.Forms.TextBox();
@@ -62,46 +62,48 @@
             this.label16 = new System.Windows.Forms.Label();
             this.txtExperienceYears = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.txtMail = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.comBranch = new System.Windows.Forms.ComboBox();
+            this.txtSalary = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ImageBox)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dateTimePicker2
+            // dateTimePickerBirthDate
             // 
-            this.dateTimePicker2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker2.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.dateTimePicker2.Location = new System.Drawing.Point(251, 457);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 24);
-            this.dateTimePicker2.TabIndex = 47;
+            this.dateTimePickerBirthDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePickerBirthDate.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.dateTimePickerBirthDate.Location = new System.Drawing.Point(251, 463);
+            this.dateTimePickerBirthDate.Name = "dateTimePickerBirthDate";
+            this.dateTimePickerBirthDate.Size = new System.Drawing.Size(200, 24);
+            this.dateTimePickerBirthDate.TabIndex = 47;
             // 
             // txtNotes
             // 
             this.txtNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNotes.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtNotes.Location = new System.Drawing.Point(588, 541);
+            this.txtNotes.Location = new System.Drawing.Point(125, 502);
             this.txtNotes.Multiline = true;
             this.txtNotes.Name = "txtNotes";
             this.txtNotes.Size = new System.Drawing.Size(326, 54);
             this.txtNotes.TabIndex = 46;
             // 
-            // textBox7
+            // txtPhone
             // 
-            this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox7.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.textBox7.Location = new System.Drawing.Point(125, 334);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(326, 24);
-            this.textBox7.TabIndex = 44;
+            this.txtPhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPhone.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtPhone.Location = new System.Drawing.Point(125, 340);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(326, 24);
+            this.txtPhone.TabIndex = 44;
             // 
             // txtDepartment
             // 
             this.txtDepartment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDepartment.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtDepartment.Location = new System.Drawing.Point(588, 496);
+            this.txtDepartment.Location = new System.Drawing.Point(588, 533);
             this.txtDepartment.Name = "txtDepartment";
             this.txtDepartment.Size = new System.Drawing.Size(326, 24);
             this.txtDepartment.TabIndex = 43;
@@ -166,7 +168,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.label11.Location = new System.Drawing.Point(920, 534);
+            this.label11.Location = new System.Drawing.Point(457, 489);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(55, 18);
             this.label11.TabIndex = 36;
@@ -202,7 +204,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.label7.Location = new System.Drawing.Point(920, 490);
+            this.label7.Location = new System.Drawing.Point(920, 527);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(41, 18);
             this.label7.TabIndex = 32;
@@ -280,14 +282,14 @@
             this.label1.TabIndex = 26;
             this.label1.Text = "اسم الموظف";
             // 
-            // textBox11
+            // txtSocialStatus
             // 
-            this.textBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox11.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.textBox11.Location = new System.Drawing.Point(125, 416);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(326, 24);
-            this.textBox11.TabIndex = 65;
+            this.txtSocialStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSocialStatus.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtSocialStatus.Location = new System.Drawing.Point(125, 422);
+            this.txtSocialStatus.Name = "txtSocialStatus";
+            this.txtSocialStatus.Size = new System.Drawing.Size(326, 24);
+            this.txtSocialStatus.TabIndex = 65;
             // 
             // label13
             // 
@@ -301,14 +303,14 @@
             this.label13.TabIndex = 64;
             this.label13.Text = "الحاله الاجتماعيه";
             // 
-            // txt
+            // txtAddress
             // 
-            this.txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txt.Location = new System.Drawing.Point(124, 293);
-            this.txt.Name = "txt";
-            this.txt.Size = new System.Drawing.Size(326, 24);
-            this.txt.TabIndex = 63;
+            this.txtAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAddress.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtAddress.Location = new System.Drawing.Point(124, 299);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(326, 24);
+            this.txtAddress.TabIndex = 63;
             // 
             // label15
             // 
@@ -328,7 +330,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.label12.Location = new System.Drawing.Point(925, 446);
+            this.label12.Location = new System.Drawing.Point(925, 483);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(34, 18);
             this.label12.TabIndex = 60;
@@ -367,7 +369,7 @@
             this.ImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ImageBox.TabIndex = 68;
             this.ImageBox.TabStop = false;
-            this.ImageBox.Click += new System.EventHandler(this.button1_Click);
+            this.ImageBox.Click += new System.EventHandler(this.btnUploadImage_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -406,7 +408,7 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(127, 45);
             this.btnAdd.TabIndex = 71;
-            this.btnAdd.Click += new System.EventHandler(this.button1_Click);
+            this.btnAdd.Click += new System.EventHandler(this.btnAddEmployee_Click);
             // 
             // txtEmployeeNumber
             // 
@@ -450,14 +452,14 @@
             this.label17.TabIndex = 72;
             this.label17.Text = "عدد سنوات الخبرة";
             // 
-            // textBox15
+            // txtMail
             // 
-            this.textBox15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox15.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.textBox15.Location = new System.Drawing.Point(124, 375);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(326, 24);
-            this.textBox15.TabIndex = 75;
+            this.txtMail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMail.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtMail.Location = new System.Drawing.Point(124, 381);
+            this.txtMail.Name = "txtMail";
+            this.txtMail.Size = new System.Drawing.Size(326, 24);
+            this.txtMail.TabIndex = 75;
             // 
             // label18
             // 
@@ -475,10 +477,31 @@
             // 
             this.comBranch.Font = new System.Drawing.Font("Tahoma", 10F);
             this.comBranch.FormattingEnabled = true;
-            this.comBranch.Location = new System.Drawing.Point(714, 451);
+            this.comBranch.Location = new System.Drawing.Point(714, 488);
             this.comBranch.Name = "comBranch";
             this.comBranch.Size = new System.Drawing.Size(200, 24);
             this.comBranch.TabIndex = 76;
+            // 
+            // txtSalary
+            // 
+            this.txtSalary.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSalary.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtSalary.Location = new System.Drawing.Point(588, 451);
+            this.txtSalary.Name = "txtSalary";
+            this.txtSalary.Size = new System.Drawing.Size(326, 24);
+            this.txtSalary.TabIndex = 78;
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.label14.Location = new System.Drawing.Point(925, 447);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(41, 18);
+            this.label14.TabIndex = 77;
+            this.label14.Text = "الراتب";
             // 
             // EmployeeRecord
             // 
@@ -486,8 +509,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(1078, 681);
+            this.Controls.Add(this.txtSalary);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.comBranch);
-            this.Controls.Add(this.textBox15);
+            this.Controls.Add(this.txtMail);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.txtExperienceYears);
             this.Controls.Add(this.label17);
@@ -495,16 +520,16 @@
             this.Controls.Add(this.label16);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.ImageBox);
-            this.Controls.Add(this.textBox11);
+            this.Controls.Add(this.txtSocialStatus);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.txt);
+            this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtQualification);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateTimePickerBirthDate);
             this.Controls.Add(this.txtNotes);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.txtDepartment);
             this.Controls.Add(this.txtWorkType);
             this.Controls.Add(this.dateTimePickerStartDate);
@@ -535,9 +560,9 @@
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePickerBirthDate;
         private System.Windows.Forms.TextBox txtNotes;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.TextBox txtDepartment;
         private System.Windows.Forms.TextBox txtWorkType;
         private System.Windows.Forms.DateTimePicker dateTimePickerStartDate;
@@ -555,9 +580,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox txtSocialStatus;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txt;
+        private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtQualification;
@@ -569,8 +594,10 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtExperienceYears;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox txtMail;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ComboBox comBranch;
+        private System.Windows.Forms.TextBox txtSalary;
+        private System.Windows.Forms.Label label14;
     }
 }
