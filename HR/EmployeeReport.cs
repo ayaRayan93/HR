@@ -15,13 +15,15 @@ namespace HR
     public partial class EmployeeReport : Form
     {
         GridControl gridControl;
-
-        public EmployeeReport(GridControl gridControl)
+        string devexpress = "";
+        public EmployeeReport(GridControl gridControl,string titel)
         {
             try
             {
                 InitializeComponent();
                 this.gridControl = gridControl;
+                this.devexpress = titel;
+              
             }
             catch (Exception ex)
             {
@@ -58,7 +60,7 @@ namespace HR
             // Specify required settings for the brick graphics.
             BrickGraphics brickGraphics = e.Graph;
             brickGraphics.BackColor = Color.White;
-            brickGraphics.Font = new Font("Neo Sans Arabic", 8);
+            brickGraphics.Font = new Font("Neo Sans Arabic", 10);
 
             // Set the rectangle for a page info brick. 
             RectangleF r = RectangleF.Empty;
@@ -75,28 +77,28 @@ namespace HR
             // Specify required settings for the brick graphics.
             BrickGraphics brickGraphics = e.Graph;
             brickGraphics.BackColor = Color.White;
-            brickGraphics.Font = new Font("Neo Sans Arabic", 8);
+            brickGraphics.Font = new Font("Neo Sans Arabic", 10);
 
             // Declare bricks.
             PageInfoBrick pageInfoBrick;
             PageImageBrick pageImageBrick;
 
             // Define the image to display.
-            Image pageImage = HR.Properties.Resources.Logo;
+            Image pageImage = HR.Properties.Resources.Logo3;
 
             // Display the PageImageBrick containing the DevExpress logo.
-            pageImageBrick = brickGraphics.DrawPageImage(pageImage, new Rectangle(856, 0, 100, 80), BorderSide.None, Color.Transparent);
+            pageImageBrick = brickGraphics.DrawPageImage(pageImage, new Rectangle(810, 0, 150, 150), BorderSide.None, Color.Transparent);
             pageImageBrick.Alignment = BrickAlignment.Far;
 
             // Display the PageInfoBrick containing date-time information. Date-time information is displayed
             // in the left part of the MarginalHeader section using the FullDateTimePattern.
             //{0:F}
-            pageInfoBrick = brickGraphics.DrawPageInfo(PageInfo.DateTime, "{0:MM/dd/yyyy hh:mm tt}", Color.Black, new Rectangle(840, 90, 120, 50), BorderSide.None);
+            pageInfoBrick = brickGraphics.DrawPageInfo(PageInfo.DateTime, "{0:MM/dd/yyyy hh:mm tt}", Color.Black, new Rectangle(840, 160, 120, 50), BorderSide.None);
             pageInfoBrick.Alignment = BrickAlignment.Far;
 
 
             // Declare text strings.
-            string devexpress = "تقرير المخازن";
+       
             // Specify required settings for the brick graphics.
             BrickGraphics brickGraphics2 = e.Graph;
             brickGraphics2.BackColor = Color.White;

@@ -11,18 +11,26 @@ using System.Windows.Forms;
 
 namespace HR
 {
-    public partial class EmployeesName : Form
+    public partial class EmployeeConnectionInfo : Form
     {
         MySqlConnection dbconnection;
         HRMainForm HRMainForm;
-        public EmployeesName(HRMainForm HRMainForm)
+        public EmployeeConnectionInfo(HRMainForm HRMainForm)
         {
-            InitializeComponent();
-            dbconnection = new MySqlConnection(connection.connectionString);
-            this.HRMainForm = HRMainForm;
+            try
+            {
+                InitializeComponent();
+                dbconnection = new MySqlConnection(connection.connectionString);
+                this.HRMainForm = HRMainForm;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+          
         }
 
-        private void EmployeesName_Load(object sender, EventArgs e)
+        private void EmployeeConnectionInfo_Load(object sender, EventArgs e)
         {
             try
             {
@@ -40,7 +48,7 @@ namespace HR
         {
             try
             {
-                HRMainForm.bindReport2EmployeesForm(gridControl1);
+                HRMainForm.bindReport3EmployeesForm(gridControl1);
             }
             catch (Exception ex)
             {
@@ -52,7 +60,7 @@ namespace HR
         //display all employee
         public void displayEmployee()
         {
-            string query = "select Employee_ID, Employee_Number as 'الرقم الوظيفي',Employee_Name as 'اسم الموظف' from employee ";
+            string query = "select Employee_ID, Employee_Number as 'الرقم الوظيفي',Employee_Name as 'اسم الموظف',Employee_Phone as 'التلفون',Employee_Address as 'العنوان',Employee_Mail as 'البريد الالكتروني' from employee ";
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, dbconnection);
             DataSet dataSet = new DataSet();
             adapter.Fill(dataSet);
@@ -60,6 +68,6 @@ namespace HR
             gridView1.Columns[0].Visible = false;
         }
 
-     
+      
     }
 }

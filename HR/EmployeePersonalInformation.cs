@@ -11,18 +11,25 @@ using System.Windows.Forms;
 
 namespace HR
 {
-    public partial class EmployeesName : Form
+    public partial class EmployeePersonalInformation : Form
     {
         MySqlConnection dbconnection;
         HRMainForm HRMainForm;
-        public EmployeesName(HRMainForm HRMainForm)
+        public EmployeePersonalInformation(HRMainForm HRMainForm)
         {
-            InitializeComponent();
-            dbconnection = new MySqlConnection(connection.connectionString);
-            this.HRMainForm = HRMainForm;
+            try
+            {
+                InitializeComponent();
+                dbconnection = new MySqlConnection(connection.connectionString);
+                this.HRMainForm = HRMainForm;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        private void EmployeesName_Load(object sender, EventArgs e)
+        private void EmployeePersonalInformation_Load(object sender, EventArgs e)
         {
             try
             {
@@ -40,7 +47,7 @@ namespace HR
         {
             try
             {
-                HRMainForm.bindReport2EmployeesForm(gridControl1);
+                HRMainForm.bindReport4EmployeesForm(gridControl1);
             }
             catch (Exception ex)
             {
@@ -52,7 +59,7 @@ namespace HR
         //display all employee
         public void displayEmployee()
         {
-            string query = "select Employee_ID, Employee_Number as 'الرقم الوظيفي',Employee_Name as 'اسم الموظف' from employee ";
+            string query = "select Employee_ID, Employee_Number as 'الرقم الوظيفي',Employee_Name as 'اسم الموظف',Employee_Qualification as 'المؤهل العلمي',SocialInsuranceNumber as 'رقم التامين الاجتماعي',National_ID as 'الرقم القومي',Employee_Start_Date as 'تاريخ بدءالعمل',Branch_Name as 'الفرع',Employee_Job as 'الوظيفة',Employee_Department as 'مكان العمل',EmploymentType as 'نوع التوظيف',ExperienceYears as 'عدد سنوات الخبرة' from employee inner join branch on employee.Employee_Branch_ID=branch.Branch_ID";
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, dbconnection);
             DataSet dataSet = new DataSet();
             adapter.Fill(dataSet);
@@ -60,6 +67,6 @@ namespace HR
             gridView1.Columns[0].Visible = false;
         }
 
-     
+   
     }
 }

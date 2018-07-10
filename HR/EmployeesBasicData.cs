@@ -14,10 +14,20 @@ namespace HR
     public partial class EmployeesBasicData : Form
     {
         MySqlConnection dbconnection;
-        public EmployeesBasicData()
+        HRMainForm HRMainForm;
+        public EmployeesBasicData(HRMainForm HRMainForm)
         {
-            InitializeComponent();
-            dbconnection = new MySqlConnection(connection.connectionString);
+            try
+            {
+                InitializeComponent();
+                dbconnection = new MySqlConnection(connection.connectionString);
+                this.HRMainForm = HRMainForm;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+      
         }
 
         private void EmployeesBasicData_Load(object sender, EventArgs e)
@@ -34,6 +44,18 @@ namespace HR
             dbconnection.Close();
         }
 
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                HRMainForm.bindReport1EmployeesForm(gridControl1);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         //function
         //display all employee
         public void displayEmployee()
@@ -45,5 +67,7 @@ namespace HR
             gridControl1.DataSource = dataSet.Tables[0];
             gridView1.Columns[0].Visible = false;
         }
+
+    
     }
 }

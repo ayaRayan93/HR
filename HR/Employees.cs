@@ -56,6 +56,20 @@ namespace HR
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataRowView row = (DataRowView)(((GridView)gridControl1.MainView).GetRow(((GridView)gridControl1.MainView).GetSelectedRows()[0]));
+                HRMainForm.bindUpdateEmployeesForm(row, this);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try
@@ -111,16 +125,24 @@ namespace HR
         //display all employee
         public void displayEmployee()
         {
-            string query = "select Employee_ID, Employee_Number as 'الرقم الوظيفي',Employee_Name as 'اسم الموظف',Employee_Phone as 'التلفون',Employee_Address as 'العنوان',Employee_Mail as 'البريد الالكتروني',Employee_Birth_Date as 'تاريخ الميلاد',Employee_Qualification as 'المؤهل العلمي',SocialInsuranceNumber as 'رقم التامين الاجتماعي',National_ID as 'الرقم القومي',Social_Status as 'الحالة الاجتماعية',Employee_Start_Date as 'تاريخ بدءالعمل',Branch_Name as 'الفرع',Employee_Job as 'الوظيفة',Employee_Department as 'مكان العمل',Employee_Salary as 'الراتب الاساسي',Employee_Photo as 'الصورة',EmploymentType as 'نوع التوظيف',ExperienceYears as 'عدد سنوات الخبرة',Employee_Info as 'ملاحظات' from employee inner join branch on employee.Employee_Branch_ID=branch.Branch_ID";      
+            string query = "select Employee_ID, Employee_Number as 'الرقم الوظيفي',Employee_Name as 'اسم الموظف',Employee_Phone as 'رقم الهاتف',Employee_Address as 'عنوان السكن',Employee_Mail as 'البريد الالكتروني',Employee_Birth_Date as 'تاريخ الميلاد',Employee_Qualification as 'المؤهل العلمي',SocialInsuranceNumber as 'رقم التامين الاجتماعي',National_ID as 'الرقم القومي',Social_Status as 'الحالة الاجتماعية',Employee_Start_Date as 'تاريخ التعيين',Branch_Name as 'الفرع',Employee_Job as 'الوظيفة',Employee_Department as 'مكان العمل',Employee_Salary as 'الراتب الاساسي',Employee_Photo as 'الصورة',EmploymentType as 'نوع التوظيف',ExperienceYears as 'عدد سنوات الخبرة',Employee_Info as 'ملاحظات' from employee inner join branch on employee.Employee_Branch_ID=branch.Branch_ID";      
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, dbconnection);
-            DataSet dataSet = new DataSet();
-            adapter.Fill(dataSet);
-            gridControl1.DataSource = dataSet.Tables[0];
+            DataSet dataSet1 = new DataSet();
+            adapter.Fill(dataSet1);
+           
+            query = "select Delegate_ID, Delegate_Number as 'الرقم الوظيفي',Delegate_Name as 'اسم الموظف',Delegate_Phone as 'رقم الهاتف',Delegate_Address as 'عنوان السكن',Delegate_Mail as 'البريد الالكتروني',Delegate_Birth_Date as 'تاريخ الميلاد',Delegate_Qualification as 'المؤهل العلمي',SocialInsuranceNumber as 'رقم التامين الاجتماعي',National_ID as 'الرقم القومي',Social_Status as 'الحالة الاجتماعية',Delegate_Start_Date as 'تاريخ التعيين',Branch_Name as 'الفرع',Delegate_Job as 'الوظيفة',Delegate_Department as 'مكان العمل',Delegate_Salary as 'الراتب الاساسي',Delegate_Photo as 'الصورة',EmploymentType as 'نوع التوظيف',ExperienceYears as 'عدد سنوات الخبرة',Delegate_Info as 'ملاحظات' from Delegate inner join branch on Delegate.Delegate_Branch_ID=branch.Branch_ID";
+            adapter = new MySqlDataAdapter(query, dbconnection);
+            DataSet dataSet2 = new DataSet();
+            adapter.Fill(dataSet2);
+            DataSet dataSet3 = new DataSet();
+
+            dataSet3 = dataSet1.Copy();
+            dataSet3.Merge(dataSet2, true);
+
+            gridControl1.DataSource = dataSet3.Tables[0];
             gridView1.Columns[0].Visible = false;
         }
 
-     
     }
 
-  
 }

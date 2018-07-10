@@ -1,6 +1,6 @@
 ﻿namespace HR
 {
-    partial class EmployeesBasicData
+    partial class EmployeePersonalInformation
     {
         /// <summary>
         /// Required designer variable.
@@ -49,14 +49,14 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.Controls.Add(this.btnReport, 2, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 484);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 488);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(708, 57);
-            this.tableLayoutPanel4.TabIndex = 13;
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(756, 57);
+            this.tableLayoutPanel4.TabIndex = 12;
             // 
             // btnReport
             // 
@@ -72,7 +72,7 @@
             this.btnReport.ImageZoom = 30;
             this.btnReport.LabelPosition = 18;
             this.btnReport.LabelText = "تقرير";
-            this.btnReport.Location = new System.Drawing.Point(321, 4);
+            this.btnReport.Location = new System.Drawing.Point(345, 4);
             this.btnReport.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(71, 49);
@@ -86,8 +86,8 @@
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.gridControl1.Size = new System.Drawing.Size(708, 484);
-            this.gridControl1.TabIndex = 14;
+            this.gridControl1.Size = new System.Drawing.Size(756, 488);
+            this.gridControl1.TabIndex = 13;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
@@ -100,16 +100,16 @@
             this.gridView1.OptionsFind.ShowCloseButton = false;
             this.gridView1.OptionsFind.ShowFindButton = false;
             // 
-            // EmployeesBasicData
+            // EmployeePersonalInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(708, 541);
+            this.ClientSize = new System.Drawing.Size(756, 545);
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.tableLayoutPanel4);
-            this.Name = "EmployeesBasicData";
-            this.Text = "EmployeesBasicData";
-            this.Load += new System.EventHandler(this.EmployeesBasicData_Load);
+            this.Name = "EmployeePersonalInformation";
+            this.Text = "EmployeePersonalInformation";
+            this.Load += new System.EventHandler(this.EmployeePersonalInformation_Load);
             this.tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
