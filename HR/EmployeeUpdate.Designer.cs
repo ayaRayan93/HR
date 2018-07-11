@@ -71,6 +71,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtTaraget = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ImageBox)).BeginInit();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -312,6 +314,8 @@
             this.panel2.AutoScrollMargin = new System.Drawing.Size(2, 2);
             this.panel2.AutoScrollMinSize = new System.Drawing.Size(2, 2);
             this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel2.Controls.Add(this.txtTaraget);
+            this.panel2.Controls.Add(this.label19);
             this.panel2.Controls.Add(this.labName);
             this.panel2.Controls.Add(this.labNumberReqired);
             this.panel2.Controls.Add(this.txtSalary);
@@ -599,6 +603,27 @@
             this.panel1.Size = new System.Drawing.Size(1075, 675);
             this.panel1.TabIndex = 71;
             // 
+            // txtTaraget
+            // 
+            this.txtTaraget.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTaraget.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtTaraget.Location = new System.Drawing.Point(71, 306);
+            this.txtTaraget.Name = "txtTaraget";
+            this.txtTaraget.Size = new System.Drawing.Size(326, 24);
+            this.txtTaraget.TabIndex = 124;
+            // 
+            // label19
+            // 
+            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.label19.Location = new System.Drawing.Point(403, 304);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(81, 18);
+            this.label19.TabIndex = 125;
+            this.label19.Text = "الهدف الشهري";
+            // 
             // EmployeeUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -662,5 +687,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtTaraget;
+        private System.Windows.Forms.Label label19;
     }
 }

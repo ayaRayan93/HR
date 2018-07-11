@@ -174,7 +174,7 @@ namespace HR
                 else if (rDelegate.Checked)
                 {
                     #region Add New Delegate
-                    string insert = "INSERT INTO Delegate (Delegate_Number,Delegate_Name,Delegate_Phone,Delegate_Address,Delegate_Info,Delegate_Qualification,Delegate_Start_Date,Delegate_Job,Delegate_Department,Delegate_Birth_Date,Delegate_Salary,Delegate_Mail,Delegate_Branch_ID,Delegate_Photo,National_ID,Social_Status,SocialInsuranceNumber,EmploymentType,ExperienceYears) VALUES (@Delegate_Number,@Delegate_Name,@Delegate_Phone,@Delegate_Address,@Delegate_Info,@Delegate_Qualification,@Delegate_Start,@Delegate_Job,@Delegate_Department,@Delegate_Birth,@Delegate_Salary,@Delegate_Mail,@Delegate_Branch_ID,@Delegate_Photo,@National_ID,@Social_Status,@SocialInsuranceNumber,@EmploymentType,@ExperienceYears)";
+                    string insert = "INSERT INTO Delegate (Delegate_Number,Delegate_Name,Delegate_Phone,Delegate_Address,Delegate_Info,Delegate_Qualification,Delegate_Start_Date,Delegate_Job,Delegate_Department,Delegate_Birth_Date,Delegate_Salary,Delegate_Mail,Delegate_Branch_ID,Delegate_Photo,National_ID,Social_Status,SocialInsuranceNumber,EmploymentType,ExperienceYears,Delegate_Taraget) VALUES (@Delegate_Number,@Delegate_Name,@Delegate_Phone,@Delegate_Address,@Delegate_Info,@Delegate_Qualification,@Delegate_Start,@Delegate_Job,@Delegate_Department,@Delegate_Birth,@Delegate_Salary,@Delegate_Mail,@Delegate_Branch_ID,@Delegate_Photo,@National_ID,@Social_Status,@SocialInsuranceNumber,@EmploymentType,@ExperienceYears,@Delegate_Taraget)";
                     MySqlCommand cmd = new MySqlCommand(insert, dbconnection);
                     cmd.Parameters.Add("@Delegate_Number", MySqlDbType.Int16);
                     if (txtEmployeeNumber.Text != "")
@@ -231,6 +231,8 @@ namespace HR
                     cmd.Parameters["@Delegate_Photo"].Value = img;
                     cmd.Parameters.Add("@Social_Status", MySqlDbType.VarChar, 255);
                     cmd.Parameters["@Social_Status"].Value = txtSocialStatus.Text;
+                    cmd.Parameters.Add("@Delegate_Taraget", MySqlDbType.Decimal, 10);
+                    cmd.Parameters["@Delegate_Taraget"].Value = Convert.ToDouble(txtTaraget.Text);
 
                     cmd.Parameters.Add("@SocialInsuranceNumber", MySqlDbType.Int16);
                     if (txtSocialInsuranceNumber.Text != "")
@@ -252,6 +254,7 @@ namespace HR
                         MessageBox.Show("تم ادخال البيانات بنجاح");
                         employees.displayEmployee();
                         clear();
+
                     }
                 }
               
@@ -296,9 +299,32 @@ namespace HR
             ImageBox.Image = null;
         }
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
+       
 
+        private void rDelegate_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                label19.Visible = true;
+                txtTaraget.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void rEmployee_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                label19.Visible = false;
+                txtTaraget.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

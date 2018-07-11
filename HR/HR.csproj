@@ -101,6 +101,12 @@
     <Compile Include="3lawaRecord.Designer.cs">
       <DependentUpon>3lawaRecord.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomTextBox.designer.cs">
+      <DependentUpon>CustomTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeConnectionInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +191,12 @@
     <Compile Include="IncentivesRecord.Designer.cs">
       <DependentUpon>IncentivesRecord.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="RewordRecord.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +223,7 @@
     <Compile Include="HRMainForm.designer.cs">
       <DependentUpon>HRMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControl.cs" />
     <Compile Include="XtraReport1.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -261,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IncentivesRecord.resx">
       <DependentUpon>IncentivesRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RewordRecord.resx">
       <DependentUpon>RewordRecord.cs</DependentUpon>

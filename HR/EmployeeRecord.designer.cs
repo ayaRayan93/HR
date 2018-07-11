@@ -30,6 +30,10 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtTaraget = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.rDelegate = new System.Windows.Forms.RadioButton();
+            this.rEmployee = new System.Windows.Forms.RadioButton();
             this.labName = new System.Windows.Forms.Label();
             this.labNumberReqired = new System.Windows.Forms.Label();
             this.txtSalary = new System.Windows.Forms.TextBox();
@@ -71,10 +75,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnAdd = new Bunifu.Framework.UI.BunifuTileButton();
-            this.rDelegate = new System.Windows.Forms.RadioButton();
-            this.rEmployee = new System.Windows.Forms.RadioButton();
-            this.txtTaraget = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImageBox)).BeginInit();
@@ -148,6 +148,55 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1078, 628);
             this.panel2.TabIndex = 72;
+            // 
+            // txtTaraget
+            // 
+            this.txtTaraget.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTaraget.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtTaraget.Location = new System.Drawing.Point(74, 306);
+            this.txtTaraget.Name = "txtTaraget";
+            this.txtTaraget.Size = new System.Drawing.Size(326, 24);
+            this.txtTaraget.TabIndex = 122;
+            // 
+            // label19
+            // 
+            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.label19.Location = new System.Drawing.Point(406, 304);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(81, 18);
+            this.label19.TabIndex = 123;
+            this.label19.Text = "الهدف الشهري";
+            // 
+            // rDelegate
+            // 
+            this.rDelegate.AutoSize = true;
+            this.rDelegate.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.rDelegate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.rDelegate.Location = new System.Drawing.Point(808, 48);
+            this.rDelegate.Name = "rDelegate";
+            this.rDelegate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.rDelegate.Size = new System.Drawing.Size(63, 21);
+            this.rDelegate.TabIndex = 121;
+            this.rDelegate.Text = "مندوب";
+            this.rDelegate.UseVisualStyleBackColor = true;
+            this.rDelegate.CheckedChanged += new System.EventHandler(this.rDelegate_CheckedChanged);
+            // 
+            // rEmployee
+            // 
+            this.rEmployee.AutoSize = true;
+            this.rEmployee.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.rEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.rEmployee.Location = new System.Drawing.Point(710, 48);
+            this.rEmployee.Name = "rEmployee";
+            this.rEmployee.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.rEmployee.Size = new System.Drawing.Size(61, 21);
+            this.rEmployee.TabIndex = 120;
+            this.rEmployee.Text = "موظف";
+            this.rEmployee.UseVisualStyleBackColor = true;
+            this.rEmployee.CheckedChanged += new System.EventHandler(this.rEmployee_CheckedChanged);
             // 
             // labName
             // 
@@ -607,54 +656,6 @@
             this.btnAdd.Size = new System.Drawing.Size(127, 45);
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Click += new System.EventHandler(this.btnAddEmployee_Click);
-            // 
-            // rDelegate
-            // 
-            this.rDelegate.AutoSize = true;
-            this.rDelegate.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.rDelegate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.rDelegate.Location = new System.Drawing.Point(808, 48);
-            this.rDelegate.Name = "rDelegate";
-            this.rDelegate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.rDelegate.Size = new System.Drawing.Size(63, 21);
-            this.rDelegate.TabIndex = 121;
-            this.rDelegate.Text = "مندوب";
-            this.rDelegate.UseVisualStyleBackColor = true;
-            // 
-            // rEmployee
-            // 
-            this.rEmployee.AutoSize = true;
-            this.rEmployee.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.rEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.rEmployee.Location = new System.Drawing.Point(710, 48);
-            this.rEmployee.Name = "rEmployee";
-            this.rEmployee.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.rEmployee.Size = new System.Drawing.Size(61, 21);
-            this.rEmployee.TabIndex = 120;
-            this.rEmployee.Text = "موظف";
-            this.rEmployee.UseVisualStyleBackColor = true;
-            this.rEmployee.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
-            // txtTaraget
-            // 
-            this.txtTaraget.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTaraget.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtTaraget.Location = new System.Drawing.Point(74, 306);
-            this.txtTaraget.Name = "txtTaraget";
-            this.txtTaraget.Size = new System.Drawing.Size(326, 24);
-            this.txtTaraget.TabIndex = 122;
-            // 
-            // label19
-            // 
-            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.label19.Location = new System.Drawing.Point(406, 304);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(81, 18);
-            this.label19.TabIndex = 123;
-            this.label19.Text = "الهدف الشهري";
             // 
             // EmployeeRecord
             // 

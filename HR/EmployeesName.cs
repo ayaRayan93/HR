@@ -52,11 +52,21 @@ namespace HR
         //display all employee
         public void displayEmployee()
         {
-            string query = "select Employee_ID, Employee_Number as 'الرقم الوظيفي',Employee_Name as 'اسم الموظف' from employee ";
+            string query = "select Employee_ID  as 'id', Employee_Number as 'الرقم الوظيفي',Employee_Name as 'اسم الموظف' from employee ";
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, dbconnection);
-            DataSet dataSet = new DataSet();
-            adapter.Fill(dataSet);
-            gridControl1.DataSource = dataSet.Tables[0];
+            DataSet dataSet1 = new DataSet();
+            adapter.Fill(dataSet1);
+
+            query = "select Delegate_ID as 'id', Delegate_Number as 'الرقم الوظيفي',Delegate_Name as 'اسم الموظف'from Delegate ";
+            adapter = new MySqlDataAdapter(query, dbconnection);
+            DataSet dataSet2 = new DataSet();
+            adapter.Fill(dataSet2);
+            DataSet dataSet3 = new DataSet();
+
+            dataSet3 = dataSet1.Copy();
+            dataSet3.Merge(dataSet2, true);
+
+            gridControl1.DataSource = dataSet3.Tables[0];
             gridView1.Columns[0].Visible = false;
         }
 

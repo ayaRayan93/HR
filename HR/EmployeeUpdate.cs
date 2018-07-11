@@ -98,86 +98,184 @@ namespace HR
                     x = Double.Parse(txtSalary.Text);
                 }
 
-                string query = "update employee set Employee_Number=@Employee_Number ,Employee_Name=@Employee_Name ,Employee_Phone=@Employee_Phone,Employee_Address=@Employee_Address,Employee_Mail=@Employee_Mail,Employee_Birth_Date=@Employee_Birth_Date,Employee_Qualification=@Employee_Qualification,SocialInsuranceNumber=@SocialInsuranceNumber,National_ID=@National_ID,Social_Status=@Social_Status,Employee_Start_Date=@Employee_Start_Date,Employee_Branch_ID=@Employee_Branch_ID,Employee_Job=@Employee_Job,Employee_Department=@Employee_Department,Employee_Salary=@Employee_Salary,Employee_Photo=@Employee_Photo,EmploymentType=@EmploymentType,ExperienceYears=@ExperienceYears,Employee_Info=@Employee_Info where Employee_ID="+row[0].ToString();
                 dbconnection.Open();
-                MySqlCommand cmd = new MySqlCommand(query, dbconnection);
-
-                cmd.Parameters.Add("@Employee_Number", MySqlDbType.Int16);
-                if (txtEmployeeNumber.Text != "")
+                if (row[0].ToString() == "موظف")
                 {
-                    cmd.Parameters["@Employee_Number"].Value = Convert.ToInt16(txtEmployeeNumber.Text);
-                    labNumberReqired.Visible = false;
-                }
-                else
-                {
-                    txtEmployeeNumber.Focus();
-                    labNumberReqired.Visible = true;
-                    dbconnection.Close();
-                    return;
-                }
-                cmd.Parameters.Add("@Employee_Name", MySqlDbType.VarChar, 255);
-                if (txtEmployeeName.Text != "")
-                {
-                    cmd.Parameters["@Employee_Name"].Value = txtEmployeeName.Text;
-                    labName.Visible = false;
-                }
-                else
-                {
-                    txtEmployeeName.Focus();
-                    labName.Visible = true;
-                    dbconnection.Close();
-                    return;
-                }
+                    #region Add New Employee
+                    string query = "update employee set Employee_Number=@Employee_Number ,Employee_Name=@Employee_Name ,Employee_Phone=@Employee_Phone,Employee_Address=@Employee_Address,Employee_Mail=@Employee_Mail,Employee_Birth_Date=@Employee_Birth_Date,Employee_Qualification=@Employee_Qualification,SocialInsuranceNumber=@SocialInsuranceNumber,National_ID=@National_ID,Social_Status=@Social_Status,Employee_Start_Date=@Employee_Start_Date,Employee_Branch_ID=@Employee_Branch_ID,Employee_Job=@Employee_Job,Employee_Department=@Employee_Department,Employee_Salary=@Employee_Salary,Employee_Photo=@Employee_Photo,EmploymentType=@EmploymentType,ExperienceYears=@ExperienceYears,Employee_Info=@Employee_Info where Employee_ID=" + row[1].ToString();
+                    MySqlCommand cmd = new MySqlCommand(query, dbconnection);
+                    cmd.Parameters.Add("@Employee_Number", MySqlDbType.Int16);
+                    if (txtEmployeeNumber.Text != "")
+                    {
+                        cmd.Parameters["@Employee_Number"].Value = Convert.ToInt16(txtEmployeeNumber.Text);
+                        labNumberReqired.Visible = false;
+                    }
+                    else
+                    {
+                        txtEmployeeNumber.Focus();
+                        labNumberReqired.Visible = true;
+                        dbconnection.Close();
+                        return;
+                    }
+                    cmd.Parameters.Add("@Employee_Name", MySqlDbType.VarChar, 255);
+                    if (txtEmployeeName.Text != "")
+                    {
+                        cmd.Parameters["@Employee_Name"].Value = txtEmployeeName.Text;
+                        labName.Visible = false;
+                    }
+                    else
+                    {
+                        txtEmployeeName.Focus();
+                        labName.Visible = true;
+                        dbconnection.Close();
+                        return;
+                    }
 
-                cmd.Parameters.Add("@National_ID", MySqlDbType.VarChar, 255);
-                cmd.Parameters["@National_ID"].Value = txtNationalID.Text;
-                cmd.Parameters.Add("@Employee_Phone", MySqlDbType.VarChar, 255);
-                cmd.Parameters["@Employee_Phone"].Value = txtPhone.Text;
-                cmd.Parameters.Add("@Employee_Address", MySqlDbType.VarChar, 255);
-                cmd.Parameters["@Employee_Address"].Value = txtAddress.Text;
-                cmd.Parameters.Add("@Employee_Qualification", MySqlDbType.VarChar, 255);
-                cmd.Parameters["@Employee_Qualification"].Value = txtQualification.Text;
-                cmd.Parameters.Add("@Employee_Start_Date", MySqlDbType.Date, 0);
-                cmd.Parameters["@Employee_Start_Date"].Value = dateTimePickerStartDate.Value;
-                cmd.Parameters.Add("@Employee_Job", MySqlDbType.VarChar, 255);
-                cmd.Parameters["@Employee_Job"].Value = txtJob.Text;
-                cmd.Parameters.Add("@Employee_Salary", MySqlDbType.Decimal, 10);
-                cmd.Parameters["@Employee_Salary"].Value = x;
-                cmd.Parameters.Add("@Employee_Birth_Date", MySqlDbType.Date, 0);
-                cmd.Parameters["@Employee_Birth_Date"].Value = dateTimePickerBirthDate.Value;
-                cmd.Parameters.Add("@Employee_Mail", MySqlDbType.VarChar, 255);
-                cmd.Parameters["@Employee_Mail"].Value = txtMail.Text;
-                cmd.Parameters.Add("@Employee_Branch_ID", MySqlDbType.Int16);
-                cmd.Parameters["@Employee_Branch_ID"].Value = comBranch.SelectedValue;
-                cmd.Parameters.Add("@Employee_Department", MySqlDbType.VarChar, 255);
-                cmd.Parameters["@Employee_Department"].Value = txtDepartment.Text;
-                cmd.Parameters.Add("@Employee_Info", MySqlDbType.VarChar, 255);
-                cmd.Parameters["@Employee_Info"].Value = txtNotes.Text;
-                cmd.Parameters.Add("@Employee_Photo", MySqlDbType.Blob);
-                cmd.Parameters["@Employee_Photo"].Value = img;
-                cmd.Parameters.Add("@Social_Status", MySqlDbType.VarChar, 255);
-                cmd.Parameters["@Social_Status"].Value = txtSocialStatus.Text;
+                    cmd.Parameters.Add("@National_ID", MySqlDbType.VarChar, 255);
+                    cmd.Parameters["@National_ID"].Value = txtNationalID.Text;
+                    cmd.Parameters.Add("@Employee_Phone", MySqlDbType.VarChar, 255);
+                    cmd.Parameters["@Employee_Phone"].Value = txtPhone.Text;
+                    cmd.Parameters.Add("@Employee_Address", MySqlDbType.VarChar, 255);
+                    cmd.Parameters["@Employee_Address"].Value = txtAddress.Text;
+                    cmd.Parameters.Add("@Employee_Qualification", MySqlDbType.VarChar, 255);
+                    cmd.Parameters["@Employee_Qualification"].Value = txtQualification.Text;
+                    cmd.Parameters.Add("@Employee_Start_Date", MySqlDbType.Date, 0);
+                    cmd.Parameters["@Employee_Start_Date"].Value = dateTimePickerStartDate.Value;
+                    cmd.Parameters.Add("@Employee_Job", MySqlDbType.VarChar, 255);
+                    cmd.Parameters["@Employee_Job"].Value = txtJob.Text;
+                    cmd.Parameters.Add("@Employee_Salary", MySqlDbType.Decimal, 10);
+                    cmd.Parameters["@Employee_Salary"].Value = x;
+                    cmd.Parameters.Add("@Employee_Birth_Date", MySqlDbType.Date, 0);
+                    cmd.Parameters["@Employee_Birth_Date"].Value = dateTimePickerBirthDate.Value;
+                    cmd.Parameters.Add("@Employee_Mail", MySqlDbType.VarChar, 255);
+                    cmd.Parameters["@Employee_Mail"].Value = txtMail.Text;
+                    cmd.Parameters.Add("@Employee_Branch_ID", MySqlDbType.Int16);
+                    cmd.Parameters["@Employee_Branch_ID"].Value = comBranch.SelectedValue;
+                    cmd.Parameters.Add("@Employee_Department", MySqlDbType.VarChar, 255);
+                    cmd.Parameters["@Employee_Department"].Value = txtDepartment.Text;
+                    cmd.Parameters.Add("@Employee_Info", MySqlDbType.VarChar, 255);
+                    cmd.Parameters["@Employee_Info"].Value = txtNotes.Text;
+                    cmd.Parameters.Add("@Employee_Photo", MySqlDbType.Blob);
+                    cmd.Parameters["@Employee_Photo"].Value = img;
+                    cmd.Parameters.Add("@Social_Status", MySqlDbType.VarChar, 255);
+                    cmd.Parameters["@Social_Status"].Value = txtSocialStatus.Text;
 
-                cmd.Parameters.Add("@SocialInsuranceNumber", MySqlDbType.Int16);
-                if (txtSocialInsuranceNumber.Text != "")
-                    cmd.Parameters["@SocialInsuranceNumber"].Value = Convert.ToInt16(txtSocialInsuranceNumber.Text);
-                else
-                    cmd.Parameters["@SocialInsuranceNumber"].Value = 0;
+                    cmd.Parameters.Add("@SocialInsuranceNumber", MySqlDbType.Int16);
+                    if (txtSocialInsuranceNumber.Text != "")
+                        cmd.Parameters["@SocialInsuranceNumber"].Value = Convert.ToInt16(txtSocialInsuranceNumber.Text);
+                    else
+                        cmd.Parameters["@SocialInsuranceNumber"].Value = 0;
 
-                cmd.Parameters.Add("@EmploymentType", MySqlDbType.VarChar, 255);
-                cmd.Parameters["@EmploymentType"].Value = txtWorkType.Text;
-                cmd.Parameters.Add("@ExperienceYears", MySqlDbType.Int16);
-                if (txtExperienceYears.Text != "")
-                    cmd.Parameters["@ExperienceYears"].Value = Convert.ToInt16(txtExperienceYears.Text);
-                else
-                    cmd.Parameters["@ExperienceYears"].Value = 0;
+                    cmd.Parameters.Add("@EmploymentType", MySqlDbType.VarChar, 255);
+                    cmd.Parameters["@EmploymentType"].Value = txtWorkType.Text;
+                    cmd.Parameters.Add("@ExperienceYears", MySqlDbType.Int16);
+                    if (txtExperienceYears.Text != "")
+                        cmd.Parameters["@ExperienceYears"].Value = Convert.ToInt16(txtExperienceYears.Text);
+                    else
+                        cmd.Parameters["@ExperienceYears"].Value = 0;
+                    #endregion
 
-                if (cmd.ExecuteNonQuery() == 1)
-                {
-                    MessageBox.Show("تم تعديل البيانات بنجاح");
-                    Employees.displayEmployee();
-                  
+                    if (cmd.ExecuteNonQuery() == 1)
+                    {
+                        MessageBox.Show("تم تعديل البيانات بنجاح");
+                        Employees.displayEmployee();
+                     
+                    }
                 }
+                else 
+                {
+                    #region Add New Delegate
+                    string query = "update Delegate set Delegate_Number=@Delegate_Number ,Delegate_Name=@Delegate_Name ,Delegate_Phone=@Delegate_Phone,Delegate_Address=@Delegate_Address,Delegate_Mail=@Delegate_Mail,Delegate_Birth_Date=@Delegate_Birth_Date,Delegate_Qualification=@Delegate_Qualification,SocialInsuranceNumber=@SocialInsuranceNumber,National_ID=@National_ID,Social_Status=@Social_Status,Delegate_Start_Date=@Delegate_Start_Date,Delegate_Branch_ID=@Delegate_Branch_ID,Delegate_Job=@Delegate_Job,Delegate_Department=@Delegate_Department,Delegate_Salary=@Delegate_Salary,Delegate_Photo=@Delegate_Photo,EmploymentType=@EmploymentType,ExperienceYears=@ExperienceYears,Delegate_Taraget=@Delegate_Taraget,Delegate_Info=@Delegate_Info where Delegate_ID=" + row[1].ToString();
+                    MySqlCommand cmd = new MySqlCommand(query, dbconnection);
+                    cmd.Parameters.Add("@Delegate_Number", MySqlDbType.Int16);
+                    if (txtEmployeeNumber.Text != "")
+                    {
+                        cmd.Parameters["@Delegate_Number"].Value = Convert.ToInt16(txtEmployeeNumber.Text);
+                        labNumberReqired.Visible = false;
+                    }
+                    else
+                    {
+                        txtEmployeeNumber.Focus();
+                        labNumberReqired.Visible = true;
+                        dbconnection.Close();
+                        return;
+                    }
+                    cmd.Parameters.Add("@Delegate_Name", MySqlDbType.VarChar, 255);
+                    if (txtEmployeeName.Text != "")
+                    {
+                        cmd.Parameters["@Delegate_Name"].Value = txtEmployeeName.Text;
+                        labName.Visible = false;
+                    }
+                    else
+                    {
+                        txtEmployeeName.Focus();
+                        labName.Visible = true;
+                        dbconnection.Close();
+                        return;
+                    }
+
+                    cmd.Parameters.Add("@National_ID", MySqlDbType.VarChar, 255);
+                    cmd.Parameters["@National_ID"].Value = txtNationalID.Text;
+                    cmd.Parameters.Add("@Delegate_Phone", MySqlDbType.VarChar, 255);
+                    cmd.Parameters["@Delegate_Phone"].Value = txtPhone.Text;
+                    cmd.Parameters.Add("@Delegate_Address", MySqlDbType.VarChar, 255);
+                    cmd.Parameters["@Delegate_Address"].Value = txtAddress.Text;
+                    cmd.Parameters.Add("@Delegate_Qualification", MySqlDbType.VarChar, 255);
+                    cmd.Parameters["@Delegate_Qualification"].Value = txtQualification.Text;
+                    cmd.Parameters.Add("@Delegate_Start_Date", MySqlDbType.Date, 0);
+                    cmd.Parameters["@Delegate_Start_Date"].Value = dateTimePickerStartDate.Value;
+                    cmd.Parameters.Add("@Delegate_Job", MySqlDbType.VarChar, 255);
+                    cmd.Parameters["@Delegate_Job"].Value = txtJob.Text;
+                    cmd.Parameters.Add("@Delegate_Salary", MySqlDbType.Decimal, 10);
+                    cmd.Parameters["@Delegate_Salary"].Value = x;
+                    cmd.Parameters.Add("@Delegate_Birth_Date", MySqlDbType.Date, 0);
+                    cmd.Parameters["@Delegate_Birth_Date"].Value = dateTimePickerBirthDate.Value;
+                    cmd.Parameters.Add("@Delegate_Mail", MySqlDbType.VarChar, 255);
+                    cmd.Parameters["@Delegate_Mail"].Value = txtMail.Text;
+                    cmd.Parameters.Add("@Delegate_Branch_ID", MySqlDbType.Int16);
+                    cmd.Parameters["@Delegate_Branch_ID"].Value = comBranch.SelectedValue;
+                    cmd.Parameters.Add("@Delegate_Department", MySqlDbType.VarChar, 255);
+                    cmd.Parameters["@Delegate_Department"].Value = txtDepartment.Text;
+                    cmd.Parameters.Add("@Delegate_Info", MySqlDbType.VarChar, 255);
+                    cmd.Parameters["@Delegate_Info"].Value = txtNotes.Text;
+                    cmd.Parameters.Add("@Delegate_Photo", MySqlDbType.Blob);
+                    cmd.Parameters["@Delegate_Photo"].Value = img;
+                    cmd.Parameters.Add("@Social_Status", MySqlDbType.VarChar, 255);
+                    cmd.Parameters["@Social_Status"].Value = txtSocialStatus.Text;
+                    if (txtTaraget.Text != "")
+                    {
+                        cmd.Parameters.Add("@Delegate_Taraget", MySqlDbType.Decimal, 10);
+                        cmd.Parameters["@Delegate_Taraget"].Value = Convert.ToDouble(txtTaraget.Text);
+                    }
+                    else
+                    {
+                        cmd.Parameters.Add("@Delegate_Taraget", MySqlDbType.Decimal, 10);
+                        cmd.Parameters["@Delegate_Taraget"].Value = 0.00;
+                    }
+                    cmd.Parameters.Add("@SocialInsuranceNumber", MySqlDbType.Int16);
+                    if (txtSocialInsuranceNumber.Text != "")
+                        cmd.Parameters["@SocialInsuranceNumber"].Value = Convert.ToInt16(txtSocialInsuranceNumber.Text);
+                    else
+                        cmd.Parameters["@SocialInsuranceNumber"].Value = 0;
+
+                    cmd.Parameters.Add("@EmploymentType", MySqlDbType.VarChar, 255);
+                    cmd.Parameters["@EmploymentType"].Value = txtWorkType.Text;
+                    cmd.Parameters.Add("@ExperienceYears", MySqlDbType.Int16);
+                    if (txtExperienceYears.Text != "")
+                        cmd.Parameters["@ExperienceYears"].Value = Convert.ToInt16(txtExperienceYears.Text);
+                    else
+                        cmd.Parameters["@ExperienceYears"].Value = 0;
+                    #endregion
+
+                    if (cmd.ExecuteNonQuery() == 1)
+                    {
+                        MessageBox.Show("تم تعديل البيانات بنجاح");
+                        Employees.displayEmployee();
+
+
+                    }
+                }
+               
             }
             catch (Exception ex)
             {
@@ -206,9 +304,21 @@ namespace HR
             txtNotes.Text = row["ملاحظات"].ToString();
             dateTimePickerBirthDate.Text= row["تاريخ الميلاد"].ToString();
             txtMail.Text = row["البريد الالكتروني"].ToString();
-            
 
-            ImageBox.Image = Properties.Resources.animated_gif_loading;
+            if (row[0].ToString() == "موظف")
+            {
+                label19.Visible = false;
+                txtTaraget.Visible = false;
+            }
+            else
+            {
+                label19.Visible = true;
+                txtTaraget.Visible = true;
+                txtTaraget.Text= row["الهدف الشهري"].ToString();
+            }
+
+
+                ImageBox.Image = Properties.Resources.animated_gif_loading;
             Thread t1 = new Thread(displayImage);
             t1.Start();
         }

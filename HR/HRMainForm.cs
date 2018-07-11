@@ -319,8 +319,8 @@ namespace HR
             {
                 xtraTabControlHRContent.TabPages.Add("تقرير اسماء الموظفين");
                 xtraTabPage = getTabPage("تقرير اسماء الموظفين");
-
             }
+
             xtraTabPage.Controls.Clear();
             xtraTabPage.Controls.Add(objForm);
             xtraTabControlHRContent.SelectedTabPage = xtraTabPage;
@@ -339,7 +339,6 @@ namespace HR
             {
                 xtraTabControlHRContent.TabPages.Add("تقرير عناوين وارقام هواتف الموظفين");
                 xtraTabPage = getTabPage("تقرير عناوين وارقام هواتف الموظفين");
-
             }
             xtraTabPage.Controls.Clear();
             xtraTabPage.Controls.Add(objForm);

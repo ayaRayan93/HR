@@ -60,11 +60,21 @@ namespace HR
         //display all employee
         public void displayEmployee()
         {
-            string query = "select Employee_ID, Employee_Number as 'الرقم الوظيفي',Employee_Name as 'اسم الموظف',Employee_Start_Date as 'تاريخ بدءالعمل',Branch_Name as 'الفرع',Employee_Job as 'الوظيفة',Employee_Department as 'مكان العمل',EmploymentType as 'نوع التوظيف' from employee inner join branch on employee.Employee_Branch_ID=branch.Branch_ID";
+            string query = "select Employee_ID as 'id', Employee_Number as 'الرقم الوظيفي',Employee_Name as 'اسم الموظف',Employee_Start_Date as 'تاريخ بدءالعمل',Branch_Name as 'الفرع',Employee_Job as 'الوظيفة',Employee_Department as 'مكان العمل',EmploymentType as 'نوع التوظيف' from employee inner join branch on employee.Employee_Branch_ID=branch.Branch_ID";
             MySqlDataAdapter adapter = new MySqlDataAdapter(query, dbconnection);
-            DataSet dataSet = new DataSet();
-            adapter.Fill(dataSet);
-            gridControl1.DataSource = dataSet.Tables[0];
+            DataSet dataSet1 = new DataSet();
+            adapter.Fill(dataSet1);
+
+            query = "select  Delegate_ID as 'id', Delegate_Number as 'الرقم الوظيفي',Delegate_Name as 'اسم الموظف',Delegate_Start_Date as 'تاريخ التعيين',Branch_Name as 'الفرع',Delegate_Job as 'الوظيفة',Delegate_Department as 'مكان العمل',Delegate_Photo as 'الصورة',EmploymentType as 'نوع التوظيف' from Delegate inner join branch on Delegate.Delegate_Branch_ID=branch.Branch_ID";
+            adapter = new MySqlDataAdapter(query, dbconnection);
+            DataSet dataSet2 = new DataSet();
+            adapter.Fill(dataSet2);
+            DataSet dataSet3 = new DataSet();
+
+            dataSet3 = dataSet1.Copy();
+            dataSet3.Merge(dataSet2, true);
+
+            gridControl1.DataSource = dataSet3.Tables[0];
             gridView1.Columns[0].Visible = false;
         }
 
