@@ -118,7 +118,6 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "تسجيل";
-            this.Load += new System.EventHandler(this.Login_Load);
             this.panContent.ResumeLayout(false);
             this.panContent.PerformLayout();
             this.ResumeLayout(false);

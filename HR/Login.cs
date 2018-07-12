@@ -16,6 +16,7 @@ namespace HR
         string connstr = connection.connectionString;
         MySqlConnection conn;
         Timer t;
+
         public Login()
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace HR
             try
             {
                 
-                string query = "select User_ID,User_Name from users where User_Name=@Name and Password=@Pass and (User_Type=0 or User_Type=1)";
+                string query = "select User_ID,User_Name from users where User_Name=@Name and Password=@Pass and (User_Type=0 or User_Type=2)";
                 conn.Open();
                 MySqlCommand comand = new MySqlCommand(query, conn);
                 comand.Parameters.AddWithValue("@Name", txtName.Text);
@@ -92,30 +93,37 @@ namespace HR
                 MessageBox.Show(ex.Message);
             }
         }
+
         private void txtPassword_KeyDown(object sender, KeyEventArgs e)
         {
             try
             {
                 if (e.KeyCode == Keys.Enter)
                 {
-                    string query = "select User_Name from users where User_Name=@Name and Password=@Pass and (User_Type=0 or User_Type=1)";
+                    string query = "select User_ID, User_Name from users where User_Name=@Name and Password=@Pass and (User_Type=0 or User_Type=2)";
                     conn.Open();
                     MySqlCommand comand = new MySqlCommand(query, conn);
                     comand.Parameters.AddWithValue("@Name", txtName.Text);
                     comand.Parameters.AddWithValue("@Pass", txtPassword.Text);
-                    var result = comand.ExecuteScalar();
-                    conn.Close();
+                    MySqlDataReader result = comand.ExecuteReader();
+
 
                     if (result != null)
                     {
-                        HRMainForm f = new HRMainForm();
-                        f.Show();
+                        while (result.Read())
+                        {
+                            UserControl.userID = (int)result[0];
+                            UserControl.userName = result[1].ToString();
+
+                            HRMainForm f = new HRMainForm();
+                            f.Show();
+                        }
+
                         this.Hide();
                     }
                     else
                     {
-                        txtPassword.Focus();
-                        MessageBox.Show("Enter correct password");
+                        MessageBox.Show("please try again");
                     }
 
                 }
@@ -126,50 +134,6 @@ namespace HR
             }
         }
    
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                t = new Timer();
-                
-                t.Interval = 2000; // specify interval time as you want
-                t.Tick += new EventHandler(timer_Tick);
-                t.Start();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        void timer_Tick(object sender, EventArgs e)
-        {
-            try
-            {
-                // this.FormBorderStyle = FormBorderStyle.Sizable;
-             //   panel9.Visible = false;
-                t.Stop();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-       
-        }
-
-    
-        private void panel8_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Environment.Exit(0);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
         private void panClose_Click(object sender, EventArgs e)
         {
             try
@@ -181,8 +145,6 @@ namespace HR
                 MessageBox.Show(ex.Message);
             }
         }
-
-      
 
     }
 }

@@ -18,6 +18,7 @@ namespace HR
         MySqlConnection dbconnection;
         DataRowView row;
         Employees Employees;
+        bool imgFlag = false;
         public EmployeeUpdate(DataRowView r, Employees Employees)
         {
             try
@@ -66,6 +67,7 @@ namespace HR
                 if (opf.ShowDialog() == DialogResult.OK)
                 {
                     ImageBox.Image = Image.FromFile(opf.FileName);
+                    imgFlag = true;
                 }
             }
             catch (Exception ex)
@@ -81,7 +83,7 @@ namespace HR
             {
                 byte[] img = null;
 
-                if (ImageBox.Image != null)
+                if (ImageBox.Image != null&&imgFlag)
                 {
                     MemoryStream ms = new MemoryStream();
                     ImageBox.Image.Save(ms, ImageBox.Image.RawFormat);
@@ -179,7 +181,7 @@ namespace HR
                     {
                         MessageBox.Show("تم تعديل البيانات بنجاح");
                         Employees.displayEmployee();
-                     
+                        UserControl.UserRecord("employee", "تعديل", row[1].ToString(), DateTime.Now, dbconnection);
                     }
                 }
                 else 
@@ -271,8 +273,7 @@ namespace HR
                     {
                         MessageBox.Show("تم تعديل البيانات بنجاح");
                         Employees.displayEmployee();
-
-
+                        UserControl.UserRecord("delegate", "تعديل", row[1].ToString(), DateTime.Now, dbconnection);
                     }
                 }
                

@@ -16,6 +16,7 @@ namespace HR
     {
         MySqlConnection dbconnection;
         Employees employees;
+      
         public EmployeeRecord(Employees employees)
         {
             try
@@ -169,6 +170,10 @@ namespace HR
                         MessageBox.Show("تم ادخال البيانات بنجاح");
                         employees.displayEmployee();
                         clear();
+                        string query = "select Employee_ID from employee order by Employee_ID desc limit 1";
+                        MySqlCommand com = new MySqlCommand(query, dbconnection);
+
+                        UserControl.UserRecord("employee", "اضافة",com.ExecuteScalar().ToString(), DateTime.Now, dbconnection);
                     }
                 }
                 else if (rDelegate.Checked)
@@ -232,7 +237,15 @@ namespace HR
                     cmd.Parameters.Add("@Social_Status", MySqlDbType.VarChar, 255);
                     cmd.Parameters["@Social_Status"].Value = txtSocialStatus.Text;
                     cmd.Parameters.Add("@Delegate_Taraget", MySqlDbType.Decimal, 10);
-                    cmd.Parameters["@Delegate_Taraget"].Value = Convert.ToDouble(txtTaraget.Text);
+
+                    if (txtTaraget.Text != "")
+                    {
+                        cmd.Parameters["@Delegate_Taraget"].Value = Convert.ToDouble(txtTaraget.Text);
+                    }
+                    else
+                    {
+                        cmd.Parameters["@Delegate_Taraget"].Value = 0;
+                    }
 
                     cmd.Parameters.Add("@SocialInsuranceNumber", MySqlDbType.Int16);
                     if (txtSocialInsuranceNumber.Text != "")
@@ -254,6 +267,10 @@ namespace HR
                         MessageBox.Show("تم ادخال البيانات بنجاح");
                         employees.displayEmployee();
                         clear();
+
+                        string query = "select Delegate_ID from delegate order by Delegate_ID desc limit 1";
+                        MySqlCommand com = new MySqlCommand(query, dbconnection);
+                        UserControl.UserRecord("delegate", "اضافة",com.ExecuteScalar().ToString(), DateTime.Now, dbconnection);
 
                     }
                 }
